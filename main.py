@@ -1,25 +1,32 @@
-import seaborn as sns
-import matplotlib.pyplot as plt
+def prediction_loop(label_df: pd.DataFrame, vertex_issue_prompt: str, text_col: List[str], json_output_path: Path) -> List[dict]:
+    output_json_list = read_existing_json(json_output_path)
+    existing_issue_ids = {item['issue_id'] for item in output_json_list}
 
-def plot_custom_confusion_matrix(cm: np.ndarray, cats_col: list[str]):
-    """
-    Plot the 5x5 custom confusion matrix using seaborn's heatmap.
-    
-    Args:
-    - cm: The 5x5 confusion matrix as a NumPy array.
-    - cats_col: List of category names for labeling the axes.
-    """
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=cats_col, yticklabels=cats_col)
-    plt.xlabel('Predicted Category')
-    plt.ylabel('True Category')
-    plt.title('Custom Confusion Matrix')
-    plt.show()
+    # Use the LLM generator
+    llm_generator = get_llm()
 
-# Example usage:
+    for i, row in label_df.iterrows():
+        issue_id = row['issue_id']  # Adjust according to your DataFrame structure
+        if issue_id in existing_issue_ids:
+            continue  # Skip already processed issues
 
-# Generate the custom confusion matrix from the previous step
-custom_cm = custom_confusion_matrix(label_df, pred_df, cats_col)
+        text = row[text_col].to_dict()
+        json_str = json.dumps(text, indent=4)  # Convert context to JSON string
+        cooked_prompt = vertex_issue_prompt.format(issue_text=json_str)
 
-# Plot the confusion matrix
-plot_custom_confusion_matrix(custom_cm, cats_col)
+        # Generate content with retry strategy
+        try:
+            llm = next(llm_generator)  # Get the LLM instance from the generator
+            result_text = generate_content_with_retry(cooked_prompt)
+            result_json = extract_json(result_text)  # Assuming this function is defined
+
+            result_json.update({'issue_id': issue_id, 'issue_name': row['issue_name']})  # Add issue id and name
+            output_json_list.append(result_json)
+
+            # Save after each iteration
+            save_json_output(json_output_path, output_json_list)
+
+        except Exception as e:
+            print(f"An error occurred while processing issue {issue_id}: {e}")
+
+    return output_json_list
