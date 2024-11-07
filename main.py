@@ -1,44 +1,91 @@
-import pandas as pd
-from sklearn.metrics import precision_score, recall_score, f1_score
+import re
+from collections import defaultdict
 
-# Sample DataFrame for demonstration (replace with your actual DataFrame)
-data = {
-    'rule_list': [['C1c'], ['G5', 'J1'], ['F', 'G5', 'J1'], ['C1c'], ['C1d']],
-    'sim': [['M2'], ['G5'], ['G5'], ['G5'], ['G5']],
-    # Add more rows as needed
-}
-df = pd.DataFrame(data)
+# Define the Node class for building the tree
+class Node:
+    def __init__(self, key_part, full_key):
+        self.key_part = key_part  # The part of the key at this level
+        self.full_key = full_key  # The full key up to this node
+        self.value = ''           # The value associated with this key
+        self.children = {}        # Dictionary of child nodes
 
-# Function to calculate precision, recall, and F1 for each row
-def calculate_metrics(row):
-    # Convert rule_list and sim to sets for easier comparison
-    true_labels = set(row['rule_list'])
-    predicted_labels = set(row['sim'])
-    
-    # Calculate precision, recall, and F1-score
-    tp = len(true_labels & predicted_labels)  # True Positives
-    fp = len(predicted_labels - true_labels)  # False Positives
-    fn = len(true_labels - predicted_labels)  # False Negatives
-    
-    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
-    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
-    f1 = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-    
-    return pd.Series([precision, recall, f1])
+def parse_key(key):
+    """
+    Parse the key into its hierarchical components.
+    """
+    pattern = re.compile(r'^([A-Z])(\d+)?([a-z])?(i{1,3})?$')
+    match = pattern.match(key)
+    if not match:
+        raise ValueError(f"Invalid key format: {key}")
+    groups = match.groups()
+    levels = [g for g in groups if g]
+    return levels
 
-# Apply the function to each row and calculate metrics
-df[['precision', 'recall', 'f1_score']] = df.apply(calculate_metrics, axis=1)
+def build_tree(rule_dict):
+    """
+    Build a tree representation of the rules.
+    """
+    root = Node('', '')
+    for key, value in rule_dict.items():
+        levels = parse_key(key)
+        current_node = root
+        full_key = ''
+        for level in levels:
+            full_key += level
+            if level not in current_node.children:
+                current_node.children[level] = Node(level, full_key)
+            current_node = current_node.children[level]
+        current_node.value = value
+    return root
 
-# Calculate average precision, recall, and F1-score across all rows
-average_precision = df['precision'].mean()
-average_recall = df['recall'].mean()
-average_f1 = df['f1_score'].mean()
+def traverse(node, accumulated_value, rule_cat_cols, final_dict):
+    """
+    Traverse the tree, accumulating values and building the final dictionary.
+    """
+    if node.full_key in rule_cat_cols:
+        node.value = accumulated_value + node.value
+        final_dict[node.full_key] = node.value
+    else:
+        accumulated_value += node.value
+    for child in node.children.values():
+        traverse(child, accumulated_value, rule_cat_cols, final_dict)
 
-# Display the individual row metrics and the overall averages
-print("Individual Metrics for Each Row:")
-print(df[['rule_list', 'sim', 'precision', 'recall', 'f1_score']])
+def process_rules(rule_dict, rule_cat_cols):
+    """
+    Process the rules according to the specified requirements.
+    """
+    # Build the tree from the rule dictionary
+    root = build_tree(rule_dict)
+    # Initialize the final dictionary to store the processed rules
+    final_dict = {}
+    # Traverse the tree and build the final dictionary
+    traverse(root, '', set(rule_cat_cols), final_dict)
+    return final_dict
 
-print("\nOverall Averages:")
-print(f"Average Precision: {average_precision:.2f}")
-print(f"Average Recall: {average_recall:.2f}")
-print(f"Average F1-score: {average_f1:.2f}")
+# Example usage:
+if __name__ == "__main__":
+    # Given rule dictionary
+    rule_dict = {
+        'A': 'some test A ',
+        'B': 'Some test B ',
+        'B1': 'some text B1 ',
+        'B1a': 'some text B1a ',
+        'B1ai': 'some text B1ai ',
+        'B1aii': 'some test B1aii ',
+    }
+
+    # Given rule categories to keep
+    rule_cat_cols = [
+        "A", "B", "C1a", "C1b", "C1c", "C1d", "C1e", "C1f", "C1g", "C2a", "C2b", "C2c",
+        "C2d", "C2e", "C2f", "C2g", "C2h", "C2i", "C3a", "C3b", "C3c", "C3d", "C3e", "C3f",
+        "C3g", "C3h", "C3i", "D1", "D2", "D3", "D4", "E", "F", "G1", "G2", "G3", "G4", "G5",
+        "H1", "H2", "H3", "H4", "H5", "K1", "K2", "K3", "K4", "K5", "K6", "L1", "L2", "L3",
+        "M1", "M2", "M3", "M4", "NA"
+    ]
+
+    # Process the rules
+    final_dict = process_rules(rule_dict, rule_cat_cols)
+
+    # Print the final dictionary
+    for key, value in final_dict.items():
+        print(f"{key}: {value}")
