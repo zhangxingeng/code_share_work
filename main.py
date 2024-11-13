@@ -1,23 +1,15 @@
-from IPython.core.getipython import get_ipython
-import pandas as pd
+"""
+You are an expert in financial and risk management terminology extraction. Given a text passage, identify all abbreviations, including their full meanings where possible. If the meaning of an abbreviation is not known, please label it as "[unknown]". 
 
-def create_new_cell(contents):
-    shell = get_ipython()
-    payload = dict(
-        source='set_next_input',
-        text=contents,
-        replace=False,
-    )
-    shell.payload_manager.write_payload(payload, single=False)
+Please output the results in JSON format, using the following structure:
+{
+    "abbreviation_1": "full meaning or [unknown]",
+    "abbreviation_2": "full meaning or [unknown]",
+    ...
+}
 
-def get_df(file_name, df_name):
-    content = "{df} = pd.read_csv('{file}', names=['Name', 'Age', 'Height'])\n"\
-               "{df}.sort_values(by='Age', inplace=True)\n"\
-               "{df}"\
-               .format(df=df_name, file=file_name)
-    create_new_cell(content)
+Text passage:
+{financial_text}
 
-file_list = ['filename_1.csv', 'filename_2.csv']
-name_list = ['df1', 'df2']
-for file, name in zip(file_list, name_list):
-    get_df(file, name)
+Output only the JSON response without additional explanation.
+"""
