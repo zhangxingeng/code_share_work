@@ -1,15 +1,29 @@
-"""
-You are an expert in financial and risk management terminology extraction. Given a text passage, identify all abbreviations, including their full meanings where possible. If the meaning of an abbreviation is not known, please label it as "[unknown]". 
+from functools import wraps
 
-Please output the results in JSON format, using the following structure:
-{
-    "abbreviation_1": "full meaning or [unknown]",
-    "abbreviation_2": "full meaning or [unknown]",
-    ...
-}
+def batch_job(n):
+    """Decorator to process documents in batches of size n."""
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            docs = kwargs.get("docs", args[2] if len(args) > 2 else [])
+            for i in range(0, len(docs), n):
+                batch = docs[i:i + n]
+                func(*args[:2], docs=batch)
+        return wrapper
+    return decorator
 
-Text passage:
-{financial_text}
-
-Output only the JSON response without additional explanation.
-"""
+@batch_job(n=5)
+def add_documents(v: VertexLlM, collection: Collection, docs: list[Document]):
+    new_docs = set()
+    for doc in docs:  # only add new docs to speed up process
+        res = collection.get(ids=doc.metadata["id"])
+        if len(res["ids"]) == 0:
+            new_docs.add(doc)
+    if len(new_docs) == 0:
+        return
+    collection.add(
+        documents=[d.page_content for d in new_docs],
+        embeddings=[v.get_embedding(d.page_content) for d in new_docs],
+        metadatas=[d.metadata for d in new_docs],
+        ids=[d.metadata["id"] for d in new_docs]
+    )
