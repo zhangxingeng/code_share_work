@@ -23,33 +23,78 @@ Few-shot Examples:
 Good Examples:
 1. Paragraph: "The Board has delegated oversight of the Enterprise Risk Management Framework (ERMF) to the Chief Financial Officer (CFO)."
    Output:
-   - Enterprise Risk Management Framework (ERMF) | True | A formalized framework guiding risk management activities (framework).
-   - Chief Financial Officer (CFO) | True | A key role responsible for overseeing risk governance (person).
-   - Board | True | A governing entity with ultimate responsibility for risk oversight (organization).
+   [
+       {
+           "id": "Enterprise Risk Management Framework (ERMF)",
+           "type": "framework",
+           "description": "A formalized framework guiding risk management activities."
+       },
+       {
+           "id": "Chief Financial Officer (CFO)",
+           "type": "person",
+           "description": "A key role responsible for overseeing risk governance."
+       },
+       {
+           "id": "Board",
+           "type": "organization",
+           "description": "A governing entity with ultimate responsibility for risk oversight."
+       }
+   ]
 
 2. Paragraph: "The GRC system tracks incidents and action plans to address risks identified by the Divisional Risk Committees."
    Output:
-   - GRC system | True | A tool for documenting and monitoring risks (system).
-   - Action Plans | True | Processes developed to manage identified risks (process).
-   - Divisional Risk Committees | True | Governance groups addressing division-specific risks (committee).
+   [
+       {
+           "id": "GRC system",
+           "type": "system",
+           "description": "A tool for documenting and monitoring risks."
+       },
+       {
+           "id": "Action Plans",
+           "type": "process",
+           "description": "Processes developed to manage identified risks."
+       },
+       {
+           "id": "Divisional Risk Committees",
+           "type": "committee",
+           "description": "Governance groups addressing division-specific risks."
+       }
+   ]
 
 Bad Examples:
 1. Paragraph: "The ERMF was last reviewed in November 2023."
    Incorrect Output:
-   - November 2023 | True | A review date (location).
-   Correction: November 2023 is not an entity; dates are excluded as per the guidelines.
+   [
+       {
+           "id": "November 2023",
+           "type": "location",
+           "description": "A review date."
+       }
+   ]
+   Correction: Dates like "November 2023" are not entities and should not be included in the output.
 
 2. Paragraph: "The Three Lines of Defence model is core to our risk management strategy."
    Incorrect Output:
-   - Defence | True | A methodology for protecting systems (concept).
-   Correction: "Defence" alone is not an entity. The correct entity is "Three Lines of Defence model" (framework).
+   [
+       {
+           "id": "Defence",
+           "type": "concept",
+           "description": "A methodology for protecting systems."
+       }
+   ]
+   Correction: "Defence" alone is not an entity. The correct entity is "Three Lines of Defence model," categorized as a framework.
 
 Input Paragraph:
 {input_paragraph}
 
 Task:
-Extract a list of entities from the provided paragraph following the examples above. Provide explanations for why each item is or is not an entity, as shown in the good examples. Return only the valid entity names as a list of strings in the final output.
-
-Output Format:
-["Entity 1", "Entity 2", "Entity 3", ...]
+Extract a list of entities from the provided paragraph following the examples above. Return the output as a JSON array with the following structure:
+[
+    {
+        "id": "name of the entity",
+        "type": "type of the entity (e.g., framework, person, organization, system, etc.)",
+        "description": "any descriptive details about the entity."
+    },
+    ...
+]
 """
