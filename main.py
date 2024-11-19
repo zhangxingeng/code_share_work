@@ -1,10 +1,52 @@
-graph_prompt = """
-You are a top-tier algorithm designed for extracting information in structured formats to build a knowledge graph. Your task is to identify the entities and relations requested with the user prompt from a given text. You must generate the output in a JSON format containing a list with JSON objects. Each object should have the keys: "head", "head_type", "relation", "tail", and "tail_type". The "head" key must contain the text of the extracted entity with one of the types from the provided list in the user prompt. 
-The "head_type" key must contain the type of the extracted head entity, which must be one of the types from {node_labels_str}. 
-The "relation" key must contain the type of relation between the "head" and the "tail", which must be one of the relations from {rel_types_str}. 
-The "tail" key must represent the text of an extracted entity which is the tail of the relation, and the "tail_type" key must contain the type of the tail entity from {node_labels_str}. 
-Your task is to extract relationships from text strictly adhering to the provided schema. The relationships can only appear between specific node types are presented in the schema format like: (Entity1Type, RELATIONSHIP_TYPE, Entity2Type) /n Provided schema is {rel_types}.
-Attempt to extract as many entities and relations as you can. Maintain Entity Consistency: When extracting entities, it's vital to ensure consistency. If an entity, such as "John Doe", is mentioned multiple times in the text but is referred to by different names or pronouns (e.g., "Joe", "he"), always use the most complete identifier for that entity. The knowledge graph should be coherent and easily understandable, so maintaining consistency in entity references is crucial.
-IMPORTANT NOTES:
-- Don't add any explanation and text.
-"""
+import networkx as nx
+import matplotlib.pyplot as plt
+from langchain_community.graphs.graph_document import Node, Relationship
+
+# Example input data (replace these with actual `Node` and `Relationship` instances from Langchain)
+nodes = [
+    Node(id="1", type="Person", value="Alice"),
+    Node(id="2", type="Person", value="Bob"),
+    Node(id="3", type="Company", value="OpenAI")
+]
+
+relationships = [
+    Relationship(start_node="1", relation="works_for", end_node="3"),
+    Relationship(start_node="2", relation="knows", end_node="1")
+]
+
+# Convert nodes and relationships to a NetworkX graph
+G = nx.DiGraph()
+
+# Add nodes to the graph
+for node in nodes:
+    G.add_node(node.id, label=node.value, type=node.type)
+
+# Add relationships to the graph
+for rel in relationships:
+    G.add_edge(rel.start_node, rel.end_node, label=rel.relation)
+
+# Plot the graph
+pos = nx.spring_layout(G)  # Generate positions for nodes
+
+# Draw the graph
+plt.figure(figsize=(10, 8))
+nx.draw(
+    G,
+    pos,
+    with_labels=True,
+    labels=nx.get_node_attributes(G, "label"),
+    node_size=2000,
+    font_size=10,
+    font_color="white",
+    node_color="blue",
+    arrowsize=20
+)
+nx.draw_networkx_edge_labels(
+    G,
+    pos,
+    edge_labels=nx.get_edge_attributes(G, "label"),
+    font_size=10
+)
+
+plt.title("Graph Visualization")
+plt.show()
