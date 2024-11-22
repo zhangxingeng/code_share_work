@@ -9,25 +9,25 @@ month_map = {
 
 def convert_to_pgsql_date(line):
     """
-    Converts an Oracle TO_DATE to a PostgreSQL DATE format within a SQL INSERT line.
+    Converts an Oracle to_date (case-insensitive) to a PostgreSQL DATE format within a SQL INSERT line.
     """
-    # Define the regex pattern
-    pattern = r"TO_DATE\('(\d{2})-([A-Z]{3})-(\d{2})', 'DD-MON-RR'\)"
+    # Define the regex pattern (case-insensitive)
+    pattern = r"to_date\('(\d{2})-([A-Z]{3})-(\d{2})', 'DD-MON-RR'\)"
     
     def replacement(match):
         day, month, year_rr = match.groups()
         # Map the month abbreviation to its numerical equivalent
-        month_num = month_map[month]
+        month_num = month_map[month.upper()]  # Ensure month is uppercase
         # Convert RR year to full year
         year_full = int(year_rr) + (2000 if int(year_rr) < 50 else 1900)
         return f"DATE '{year_full}-{month_num}-{day}'"
     
-    # Substitute all matches in the line
-    return re.sub(pattern, replacement, line)
+    # Substitute all matches in the line, ignoring case
+    return re.sub(pattern, replacement, line, flags=re.IGNORECASE)
 
 def process_sql_file(input_file, output_file):
     """
-    Reads a SQL file line by line, converts Oracle TO_DATE to PostgreSQL DATE, and writes to a new file.
+    Reads a SQL file line by line, converts Oracle to_date to PostgreSQL DATE, and writes to a new file.
     """
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
         for line in infile:
