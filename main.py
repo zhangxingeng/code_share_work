@@ -1,30 +1,16 @@
-import tiktoken
+https://openaipublic.blob.core.windows.net/encodings/cl100k_base.tiktoken
+Rename it to 9b5ad71b2ce5302211f9c61530b329a4922fc6a4
+Transfer to your remote machine in a folder called "tiktoken_cache"
+Run the following code every time you need to use tiktoken
+import os
 
-def test_tiktoken_encoding(encoding_name: str, test_text: str):
-    try:
-        # Attempt to fetch the encoding
-        print(f"Trying to fetch encoding for: {encoding_name}")
-        enc = tiktoken.get_encoding(encoding_name)
-        
-        # Encode and decode a test string
-        print(f"Encoding the text: {test_text}")
-        encoded = enc.encode(test_text)
-        print(f"Encoded tokens: {encoded}")
+tiktoken_cache_dir = "path_to_tiktoken_cache_folder"
+os.environ["TIKTOKEN_CACHE_DIR"] = tiktoken_cache_dir
 
-        decoded = enc.decode(encoded)
-        print(f"Decoded text: {decoded}")
-        
-        # Check if decoded text matches the original
-        if decoded == test_text:
-            print("Success: Decoded text matches the original.")
-        else:
-            print("Error: Decoded text does NOT match the original.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+# validate
+assert os.path.exists(os.path.join(tiktoken_cache_dir,"9b5ad71b2ce5302211f9c61530b329a4922fc6a4"))
+Just ran into this issue today as well. Not the exact same error, but solution for running this offline should be the same. We'll download the necessary file, then "trick" tiktoken into caching it.
 
-# Provide encoding name and test text
-test_encoding_name = "cl100k_base"  # Replace with the encoding you're using
-test_text = "Hello, this is a test string!"  # Replace with your test string
+This method works if, say you have a remote machine with no internet access and a local machine with internet.
 
-# Run the test
-test_tiktoken_encoding(test_encoding_name, test_text)
+I'm outlining a generalized version below, but you can skip to the tl;dr if you have an updated version of tiktoken and are using the cl100k_base tokenizer.
