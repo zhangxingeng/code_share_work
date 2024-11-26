@@ -1,17 +1,30 @@
-# File: CustomTokenCredential.py
+import tiktoken
 
-from azure.core.credentials import TokenCredential, AccessToken
-import time
-import subprocess
+def test_tiktoken_encoding(encoding_name: str, test_text: str):
+    try:
+        # Attempt to fetch the encoding
+        print(f"Trying to fetch encoding for: {encoding_name}")
+        enc = tiktoken.get_encoding(encoding_name)
+        
+        # Encode and decode a test string
+        print(f"Encoding the text: {test_text}")
+        encoded = enc.encode(test_text)
+        print(f"Encoded tokens: {encoded}")
 
-class CustomTokenCredential(TokenCredential):
-    def get_token(self, *scopes, **kwargs):
-        # Set the expiration time appropriately. Adjust as needed.
-        expires_on = int(time.time()) + 60
-        return AccessToken(self.refreshed_token, expires_on)
-    
-    @property
-    def refreshed_token(self):
-        command = "some command to get token"
-        result = subprocess.check_output(command, shell=True)
-        return result.decode().strip()
+        decoded = enc.decode(encoded)
+        print(f"Decoded text: {decoded}")
+        
+        # Check if decoded text matches the original
+        if decoded == test_text:
+            print("Success: Decoded text matches the original.")
+        else:
+            print("Error: Decoded text does NOT match the original.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Provide encoding name and test text
+test_encoding_name = "cl100k_base"  # Replace with the encoding you're using
+test_text = "Hello, this is a test string!"  # Replace with your test string
+
+# Run the test
+test_tiktoken_encoding(test_encoding_name, test_text)
