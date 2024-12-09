@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightrag-hku"
+description = "LightRAG: Simple and Fast Retrieval-Augmented Generation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "your_email@example.com" }  # Replace with actual author info
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = []  # This will be replaced with `requirements.txt` contents
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://example.com/docs"  # Replace with actual URL
+Source = "https://example.com/source"       # Replace with actual URL
+Tracker = "https://example.com/issues"      # Replace with actual URL
+
+[tool.setuptools]
+packages = { find = { exclude = ["tests*", "docs*"] } }
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { file = "lightrag/__init__.py", attribute = "__version__" }
+
+[tool.ruff]
+# Same as Black.
+line-length = 200
+indent-width = 4
+
+# Assume Python 3.11
+target-version = "py311"
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)
+select = ["E", "F", "I", "DJ"]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Django plugin
+extend-select = ["DJ"]
+
+[tool.ruff.format]
+# Use single quotes for strings.
+quote-style = "double"
+
+# Indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Automatically detect the appropriate line ending.
+line-ending = "auto"
