@@ -1,16 +1,32 @@
-https://openaipublic.blob.core.windows.net/encodings/cl100k_base.tiktoken
-Rename it to 9b5ad71b2ce5302211f9c61530b329a4922fc6a4
-Transfer to your remote machine in a folder called "tiktoken_cache"
-Run the following code every time you need to use tiktoken
-import os
+from langchain.embeddings import VertexAIEmbeddings
 
-tiktoken_cache_dir = "path_to_tiktoken_cache_folder"
-os.environ["TIKTOKEN_CACHE_DIR"] = tiktoken_cache_dir
+def batch_get_embeddings(text_list: list[str], task: str = "RETRIEVAL_QUERY") -> list[list[float]]:
+    # Initialize the VertexAIEmbeddings from LangChain
+    embedding_model = VertexAIEmbeddings(model="text-embedding-004")
+    token_factor = 4
+    token_limit = 12000
 
-# validate
-assert os.path.exists(os.path.join(tiktoken_cache_dir,"9b5ad71b2ce5302211f9c61530b329a4922fc6a4"))
-Just ran into this issue today as well. Not the exact same error, but solution for running this offline should be the same. We'll download the necessary file, then "trick" tiktoken into caching it.
+    batch_token_count = 0
+    batch_inputs: list[str] = []
+    embeddings: list[list[float]] = []
 
-This method works if, say you have a remote machine with no internet access and a local machine with internet.
+    for text in text_list:
+        # Check if text chunk exceeds token limit
+        text_token_count = len(text) / token_factor
+        if text_token_count > token_limit:
+            raise ValueError(f"Single text chunk exceeds token limit: {text_token_count} > {token_limit}")
 
-I'm outlining a generalized version below, but you can skip to the tl;dr if you have an updated version of tiktoken and are using the cl100k_base tokenizer.
+        if batch_token_count + text_token_count > token_limit:
+            # Process current batch
+            embeddings += embedding_model.embed_documents(batch_inputs)
+            batch_token_count = 0
+            batch_inputs = []
+
+        batch_inputs.append(text)
+        batch_token_count += text_token_count
+
+    # Process any remaining text in the final batch
+    if batch_inputs:
+        embeddings += embedding_model.embed_documents(batch_inputs)
+
+    return embeddings
