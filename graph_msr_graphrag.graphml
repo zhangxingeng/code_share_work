@@ -1,0 +1,353 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph edgedefault="undirected">
+    <node id="PROJECT GUTENBERG" />
+    <node id="A CHRISTMAS CAROL" />
+    <node id="UNITED STATES" />
+    <node id="CHARLES DICKENS" />
+    <node id="ARTHUR RACKHAM" />
+    <node id="J. B. LIPPINCOTT COMPANY" />
+    <node id="EBENEZER SCROOGE" />
+    <node id="BOB CRATCHIT" />
+    <node id="FRED" />
+    <node id="GHOST OF CHRISTMAS PAST" />
+    <node id="GHOST OF CHRISTMAS PRESENT" />
+    <node id="GHOST OF CHRISTMAS YET TO COME" />
+    <node id="GHOST OF JACOB MARLEY" />
+    <node id="MR. FEZZIWIG" />
+    <node id="TINY TIM" />
+    <node id="SCROOGE" />
+    <node id="MARLEY" />
+    <node id="SCROOGE AND MARLEY" />
+    <node id="TIM" />
+    <node id="JOE" />
+    <node id="MARLEY'S GHOST" />
+    <node id="SCROOGE'S NEPHEW" />
+    <node id="CHRISTMAS EVE" />
+    <node id="COUNTING-HOUSE" />
+    <node id="THE CITY" />
+    <node id="CHRISTMAS" />
+    <node id="MR. MARLEY" />
+    <node id="THE CLERK" />
+    <node id="THE PORTLY GENTLEMEN" />
+    <node id="BEDLAM" />
+    <node id="THE GENTLEMAN" />
+    <node id="UNION WORKHOUSES" />
+    <node id="THE TREADMILL" />
+    <node id="POOR LAW" />
+    <node id="THE CHURCH" />
+    <node id="LORD MAYOR" />
+    <node id="MANSION HOUSE" />
+    <node id="CITY OF LONDON" />
+    <node id="CHRISTMAS CAROL" />
+    <node id="CAMDEN TOWN" />
+    <node id="CORN HILL" />
+    <node id="DUTCH MERCHANT" />
+    <node id="WINE-MERCHANT'S CELLARS" />
+    <node id="ACT OF PARLIAMENT" />
+    <node id="GAS-LAMPS" />
+    <node id="HEARSE" />
+    <node id="CHAIN-DRAGGING" />
+    <node id="JACOB MARLEY" />
+    <node id="GHOST" />
+    <node id="THREE SPIRITS" />
+    <node id="PHANTOMS" />
+    <node id="CHURCH" />
+    <node id="BEDROOM" />
+    <node id="CHRISTMAS PAST" />
+    <node id="SPIRIT" />
+    <node id="MARKET-TOWN" />
+    <node id="ALI BABA" />
+    <node id="VALENTINE" />
+    <node id="ORSON" />
+    <node id="DAMASCUS" />
+    <node id="SULTAN'S GROOM" />
+    <node id="PRINCESS" />
+    <node id="PARROT" />
+    <node id="ROBIN CRUSOE" />
+    <node id="FRIDAY" />
+    <node id="MERRY CHRISTMAS" />
+    <node id="CITY" />
+    <node id="FAN" />
+    <node id="FEZZIWIG" />
+    <node id="SCHOOLMASTER" />
+    <node id="NEPHEW" />
+    <node id="EBENEZER" />
+    <node id="DICK WILKINS" />
+    <node id="MRS. FEZZIWIG" />
+    <node id="MISS FEZZIWIGS" />
+    <node id="FIRUZABAD" />
+    <node id="TIRUZIA" />
+    <node id="DURKE BATAGLANI" />
+    <node id="MEGGIE TAZBAH" />
+    <node id="SAMUEL NAMARA" />
+    <node id="KROHAARA" />
+    <node id="QUINTARA" />
+    <node id="CASHION" />
+    <node id="AURELIA" />
+    <node id="DICK" />
+    <node id="COMELY MATRON" />
+    <node id="YOUNG GIRL" />
+    <node id="BELLE" />
+    <node id="THE SECOND OF THE THREE SPIRITS" />
+    <node id="GREAT BRITAIN" />
+    <node id="CITY STREETS" />
+    <node id="POULTERERS' SHOPS" />
+    <node id="FRUITERERS' SHOPS" />
+    <node id="GROCERS' SHOPS" />
+    <node id="CHRISTMAS DAY" />
+    <node id="BAKER'S SHOP" />
+    <node id="MRS. CRATCHIT" />
+    <node id="PETER CRATCHIT" />
+    <node id="BELINDA CRATCHIT" />
+    <node id="MARTHA CRATCHIT" />
+    <node id="CRATCHIT FAMILY" />
+    <node id="HEAVEN" />
+    <node id="LAMPLIGHTER" />
+    <node id="MOOR" />
+    <node id="LIGHTHOUSE" />
+    <node id="SHIP" />
+    <node id="MINERS" />
+    <node id="OLD MAN" />
+    <node id="SCROOGE'S NIECE" />
+    <node id="TOPPER" />
+    <node id="SCROOGE'S NIECE'S SISTER" />
+    <node id="PLUMP SISTER" />
+    <node id="LONDON" />
+    <node id="TWELFTH-NIGHT PARTY" />
+    <node id="PHANTOM" />
+    <node id="IGNORANCE" />
+    <node id="WANT" />
+    <node id="JACOB" />
+    <node id="OLD SCRATCH" />
+    <node id="CHANGE" />
+    <node id="TOWN" />
+    <node id="OLD JOE" />
+    <node id="MRS. DILBER" />
+    <node id="LAUNDRESS" />
+    <node id="UNDERTAKER'S MAN" />
+    <node id="PARLOUR" />
+    <node id="WOMAN" />
+    <node id="UNHAPPY MAN" />
+    <node id="CAROLINE" />
+    <node id="DEATH" />
+    <node id="HUSBAND" />
+    <node id="MOTHER" />
+    <node id="CHILDREN" />
+    <node id="MR. SCROOGE'S NEPHEW" />
+    <node id="SPIRIT OF TINY TIM" />
+    <node id="CHURCHYARD" />
+    <node id="GRAVE" />
+    <node id="PAST" />
+    <node id="PRESENT" />
+    <node id="FUTURE" />
+    <node id="POULTERER'S" />
+    <node id="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION" />
+    <node id="PROJECT GUTENBERG&#8482;" />
+    <node id="U.S." />
+    <node id="MICHAEL S. HART" />
+    <node id="MISSISSIPPI" />
+    <node id="INTERNAL REVENUE SERVICE" />
+    <node id="FOUNDATION" />
+    <edge source="PROJECT GUTENBERG" target="A CHRISTMAS CAROL" />
+    <edge source="PROJECT GUTENBERG" target="UNITED STATES" />
+    <edge source="PROJECT GUTENBERG" target="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION" />
+    <edge source="PROJECT GUTENBERG" target="MICHAEL S. HART" />
+    <edge source="A CHRISTMAS CAROL" target="CHARLES DICKENS" />
+    <edge source="A CHRISTMAS CAROL" target="ARTHUR RACKHAM" />
+    <edge source="A CHRISTMAS CAROL" target="J. B. LIPPINCOTT COMPANY" />
+    <edge source="UNITED STATES" target="EBENEZER SCROOGE" />
+    <edge source="UNITED STATES" target="FOUNDATION" />
+    <edge source="EBENEZER SCROOGE" target="BOB CRATCHIT" />
+    <edge source="EBENEZER SCROOGE" target="FRED" />
+    <edge source="EBENEZER SCROOGE" target="GHOST OF CHRISTMAS PAST" />
+    <edge source="EBENEZER SCROOGE" target="GHOST OF CHRISTMAS PRESENT" />
+    <edge source="EBENEZER SCROOGE" target="GHOST OF CHRISTMAS YET TO COME" />
+    <edge source="EBENEZER SCROOGE" target="GHOST OF JACOB MARLEY" />
+    <edge source="EBENEZER SCROOGE" target="MR. FEZZIWIG" />
+    <edge source="EBENEZER SCROOGE" target="JACOB MARLEY" />
+    <edge source="EBENEZER SCROOGE" target="GHOST" />
+    <edge source="EBENEZER SCROOGE" target="CHRISTMAS EVE" />
+    <edge source="EBENEZER SCROOGE" target="MARLEY'S GHOST" />
+    <edge source="EBENEZER SCROOGE" target="CHURCH" />
+    <edge source="EBENEZER SCROOGE" target="BEDROOM" />
+    <edge source="EBENEZER SCROOGE" target="CHURCHYARD" />
+    <edge source="EBENEZER SCROOGE" target="PHANTOM" />
+    <edge source="EBENEZER SCROOGE" target="GRAVE" />
+    <edge source="BOB CRATCHIT" target="TINY TIM" />
+    <edge source="BOB CRATCHIT" target="SCROOGE" />
+    <edge source="BOB CRATCHIT" target="CAMDEN TOWN" />
+    <edge source="BOB CRATCHIT" target="CHRISTMAS EVE" />
+    <edge source="BOB CRATCHIT" target="CORN HILL" />
+    <edge source="BOB CRATCHIT" target="SPIRIT" />
+    <edge source="BOB CRATCHIT" target="MRS. CRATCHIT" />
+    <edge source="BOB CRATCHIT" target="PETER CRATCHIT" />
+    <edge source="BOB CRATCHIT" target="BELINDA CRATCHIT" />
+    <edge source="BOB CRATCHIT" target="MARTHA CRATCHIT" />
+    <edge source="BOB CRATCHIT" target="MR. SCROOGE'S NEPHEW" />
+    <edge source="FRED" target="SCROOGE" />
+    <edge source="FRED" target="SCROOGE'S NIECE" />
+    <edge source="FRED" target="TOPPER" />
+    <edge source="FRED" target="CHRISTMAS" />
+    <edge source="FRED" target="PLUMP SISTER" />
+    <edge source="GHOST OF CHRISTMAS PAST" target="SCROOGE" />
+    <edge source="GHOST OF CHRISTMAS PAST" target="CHRISTMAS" />
+    <edge source="GHOST OF CHRISTMAS PRESENT" target="SCROOGE" />
+    <edge source="GHOST OF CHRISTMAS PRESENT" target="CHRISTMAS" />
+    <edge source="GHOST OF CHRISTMAS YET TO COME" target="SCROOGE" />
+    <edge source="TINY TIM" target="MRS. CRATCHIT" />
+    <edge source="TINY TIM" target="BELINDA CRATCHIT" />
+    <edge source="TINY TIM" target="PETER CRATCHIT" />
+    <edge source="TINY TIM" target="MARTHA CRATCHIT" />
+    <edge source="TINY TIM" target="SCROOGE" />
+    <edge source="TINY TIM" target="GHOST" />
+    <edge source="TINY TIM" target="SPIRIT OF TINY TIM" />
+    <edge source="SCROOGE" target="MARLEY" />
+    <edge source="SCROOGE" target="SCROOGE AND MARLEY" />
+    <edge source="SCROOGE" target="TIM" />
+    <edge source="SCROOGE" target="JOE" />
+    <edge source="SCROOGE" target="SCROOGE'S NEPHEW" />
+    <edge source="SCROOGE" target="CHRISTMAS EVE" />
+    <edge source="SCROOGE" target="COUNTING-HOUSE" />
+    <edge source="SCROOGE" target="THE CITY" />
+    <edge source="SCROOGE" target="CHRISTMAS" />
+    <edge source="SCROOGE" target="MR. MARLEY" />
+    <edge source="SCROOGE" target="THE CLERK" />
+    <edge source="SCROOGE" target="THE PORTLY GENTLEMEN" />
+    <edge source="SCROOGE" target="BEDLAM" />
+    <edge source="SCROOGE" target="THE GENTLEMAN" />
+    <edge source="SCROOGE" target="UNION WORKHOUSES" />
+    <edge source="SCROOGE" target="THE TREADMILL" />
+    <edge source="SCROOGE" target="POOR LAW" />
+    <edge source="SCROOGE" target="THE CHURCH" />
+    <edge source="SCROOGE" target="CITY OF LONDON" />
+    <edge source="SCROOGE" target="CHRISTMAS CAROL" />
+    <edge source="SCROOGE" target="DUTCH MERCHANT" />
+    <edge source="SCROOGE" target="WINE-MERCHANT'S CELLARS" />
+    <edge source="SCROOGE" target="ACT OF PARLIAMENT" />
+    <edge source="SCROOGE" target="GAS-LAMPS" />
+    <edge source="SCROOGE" target="HEARSE" />
+    <edge source="SCROOGE" target="CHAIN-DRAGGING" />
+    <edge source="SCROOGE" target="JACOB MARLEY" />
+    <edge source="SCROOGE" target="MARLEY'S GHOST" />
+    <edge source="SCROOGE" target="THREE SPIRITS" />
+    <edge source="SCROOGE" target="PHANTOMS" />
+    <edge source="SCROOGE" target="CHURCH" />
+    <edge source="SCROOGE" target="CHRISTMAS PAST" />
+    <edge source="SCROOGE" target="SPIRIT" />
+    <edge source="SCROOGE" target="MARKET-TOWN" />
+    <edge source="SCROOGE" target="GHOST" />
+    <edge source="SCROOGE" target="ALI BABA" />
+    <edge source="SCROOGE" target="VALENTINE" />
+    <edge source="SCROOGE" target="ORSON" />
+    <edge source="SCROOGE" target="DAMASCUS" />
+    <edge source="SCROOGE" target="SULTAN'S GROOM" />
+    <edge source="SCROOGE" target="PRINCESS" />
+    <edge source="SCROOGE" target="PARROT" />
+    <edge source="SCROOGE" target="ROBIN CRUSOE" />
+    <edge source="SCROOGE" target="FRIDAY" />
+    <edge source="SCROOGE" target="MERRY CHRISTMAS" />
+    <edge source="SCROOGE" target="CITY" />
+    <edge source="SCROOGE" target="FAN" />
+    <edge source="SCROOGE" target="FEZZIWIG" />
+    <edge source="SCROOGE" target="SCHOOLMASTER" />
+    <edge source="SCROOGE" target="BELLE" />
+    <edge source="SCROOGE" target="THE SECOND OF THE THREE SPIRITS" />
+    <edge source="SCROOGE" target="CHRISTMAS DAY" />
+    <edge source="SCROOGE" target="MRS. CRATCHIT" />
+    <edge source="SCROOGE" target="HEAVEN" />
+    <edge source="SCROOGE" target="SCROOGE'S NIECE" />
+    <edge source="SCROOGE" target="LONDON" />
+    <edge source="SCROOGE" target="PHANTOM" />
+    <edge source="SCROOGE" target="JACOB" />
+    <edge source="SCROOGE" target="OLD SCRATCH" />
+    <edge source="SCROOGE" target="CHANGE" />
+    <edge source="SCROOGE" target="TOWN" />
+    <edge source="SCROOGE" target="UNHAPPY MAN" />
+    <edge source="SCROOGE" target="CAROLINE" />
+    <edge source="SCROOGE" target="PAST" />
+    <edge source="SCROOGE" target="PRESENT" />
+    <edge source="SCROOGE" target="FUTURE" />
+    <edge source="SCROOGE" target="CAMDEN TOWN" />
+    <edge source="SCROOGE" target="POULTERER'S" />
+    <edge source="SCROOGE" target="TOPPER" />
+    <edge source="SCROOGE" target="PLUMP SISTER" />
+    <edge source="MARLEY" target="SCROOGE AND MARLEY" />
+    <edge source="MARLEY" target="MARLEY'S GHOST" />
+    <edge source="SCROOGE'S NEPHEW" target="TOPPER" />
+    <edge source="SCROOGE'S NEPHEW" target="SCROOGE'S NIECE" />
+    <edge source="SCROOGE'S NEPHEW" target="CHRISTMAS" />
+    <edge source="CHRISTMAS EVE" target="FEZZIWIG" />
+    <edge source="CHRISTMAS EVE" target="MRS. FEZZIWIG" />
+    <edge source="CHRISTMAS EVE" target="MISS FEZZIWIGS" />
+    <edge source="CHRISTMAS" target="THE GENTLEMAN" />
+    <edge source="CHRISTMAS" target="FEZZIWIG" />
+    <edge source="CHRISTMAS" target="GREAT BRITAIN" />
+    <edge source="CHRISTMAS" target="CITY STREETS" />
+    <edge source="CHRISTMAS" target="POULTERERS' SHOPS" />
+    <edge source="CHRISTMAS" target="FRUITERERS' SHOPS" />
+    <edge source="CHRISTMAS" target="GROCERS' SHOPS" />
+    <edge source="CHRISTMAS" target="GHOST" />
+    <edge source="CHRISTMAS" target="MOOR" />
+    <edge source="CHRISTMAS" target="LIGHTHOUSE" />
+    <edge source="CHRISTMAS" target="SHIP" />
+    <edge source="CHRISTMAS" target="SCROOGE'S NIECE" />
+    <edge source="CHRISTMAS" target="SPIRIT" />
+    <edge source="LORD MAYOR" target="MANSION HOUSE" />
+    <edge source="JACOB MARLEY" target="GHOST" />
+    <edge source="GHOST" target="SPIRIT" />
+    <edge source="GHOST" target="LAMPLIGHTER" />
+    <edge source="SPIRIT" target="CHRISTMAS DAY" />
+    <edge source="SPIRIT" target="BAKER'S SHOP" />
+    <edge source="SPIRIT" target="LONDON" />
+    <edge source="SPIRIT" target="TWELFTH-NIGHT PARTY" />
+    <edge source="SPIRIT" target="CITY" />
+    <edge source="SPIRIT" target="PAST" />
+    <edge source="SPIRIT" target="PRESENT" />
+    <edge source="SPIRIT" target="FUTURE" />
+    <edge source="FAN" target="NEPHEW" />
+    <edge source="FEZZIWIG" target="EBENEZER" />
+    <edge source="FEZZIWIG" target="DICK WILKINS" />
+    <edge source="FEZZIWIG" target="MRS. FEZZIWIG" />
+    <edge source="FEZZIWIG" target="MISS FEZZIWIGS" />
+    <edge source="FEZZIWIG" target="DICK" />
+    <edge source="FIRUZABAD" target="TIRUZIA" />
+    <edge source="FIRUZABAD" target="DURKE BATAGLANI" />
+    <edge source="FIRUZABAD" target="MEGGIE TAZBAH" />
+    <edge source="FIRUZABAD" target="SAMUEL NAMARA" />
+    <edge source="TIRUZIA" target="SAMUEL NAMARA" />
+    <edge source="KROHAARA" target="QUINTARA" />
+    <edge source="CASHION" target="AURELIA" />
+    <edge source="COMELY MATRON" target="YOUNG GIRL" />
+    <edge source="CHRISTMAS DAY" target="CRATCHIT FAMILY" />
+    <edge source="MRS. CRATCHIT" target="PETER CRATCHIT" />
+    <edge source="MRS. CRATCHIT" target="BELINDA CRATCHIT" />
+    <edge source="MRS. CRATCHIT" target="MARTHA CRATCHIT" />
+    <edge source="PETER CRATCHIT" target="BELINDA CRATCHIT" />
+    <edge source="PETER CRATCHIT" target="MARTHA CRATCHIT" />
+    <edge source="BELINDA CRATCHIT" target="MARTHA CRATCHIT" />
+    <edge source="MOOR" target="MINERS" />
+    <edge source="MINERS" target="OLD MAN" />
+    <edge source="SCROOGE'S NIECE" target="SCROOGE'S NIECE'S SISTER" />
+    <edge source="TOPPER" target="SCROOGE'S NIECE'S SISTER" />
+    <edge source="TOPPER" target="PLUMP SISTER" />
+    <edge source="IGNORANCE" target="WANT" />
+    <edge source="TOWN" target="DEATH" />
+    <edge source="OLD JOE" target="MRS. DILBER" />
+    <edge source="OLD JOE" target="LAUNDRESS" />
+    <edge source="OLD JOE" target="UNDERTAKER'S MAN" />
+    <edge source="OLD JOE" target="PARLOUR" />
+    <edge source="OLD JOE" target="WOMAN" />
+    <edge source="OLD JOE" target="UNHAPPY MAN" />
+    <edge source="MRS. DILBER" target="LAUNDRESS" />
+    <edge source="MRS. DILBER" target="UNDERTAKER'S MAN" />
+    <edge source="LAUNDRESS" target="UNDERTAKER'S MAN" />
+    <edge source="WOMAN" target="UNHAPPY MAN" />
+    <edge source="CAROLINE" target="DEATH" />
+    <edge source="CAROLINE" target="HUSBAND" />
+    <edge source="MOTHER" target="CHILDREN" />
+    <edge source="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION" target="PROJECT GUTENBERG&#8482;" />
+    <edge source="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION" target="MISSISSIPPI" />
+    <edge source="PROJECT GUTENBERG&#8482;" target="U.S." />
+    <edge source="INTERNAL REVENUE SERVICE" target="FOUNDATION" />
+  </graph>
+</graphml>
